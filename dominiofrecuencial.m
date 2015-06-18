@@ -4,6 +4,7 @@ clear all
 
 [y, fs, nbits]=wavread('sound2.WAV');
 subplot(2,1,1)
+%si la señal tiene dos canales me quedo con uno y la acorto
 if size(y,2)>1
     y=y(1:22560,1);
 end
@@ -16,7 +17,7 @@ c_a=ca+minimo;
 c_a=c_a.*(2^(nbits-1));
 
 
-thr=floor(log2((c_a)));
+%thr=floor(log2((c_a)));
 th=zeros(1,length(c_a));
 bits_fijos=8;
 for i=1:length(c_a)

@@ -3,7 +3,10 @@ clear all
 %LSB original para ocultar texto
 %sonido portador
 
-[y, fs, nbits]=wavread('sound1.WAV');
+[y, fs, nbits]=wavread('sonido4.wav');
+if size(y,2)==2;
+    y=y(1:22560,1);
+end
 subplot(3,1,1)
 plot(y)
 sound(y,fs)
@@ -56,7 +59,10 @@ clear all
 
 %sonido portador
 
-[y, fs, nbits]=wavread('sound1.WAV');
+[y, fs, nbits]=wavread('sonido4.wav');
+if size(y,2)>1
+    y=y(1:22560,1);
+end
 subplot(3,1,1)
 plot(y)
 sound(y,fs)
@@ -140,7 +146,10 @@ clear all
 
 %sonido portador
 
-[y, fs, nbits]=wavread('sound2.WAV');
+[y, fs, nbits]=wavread('sonido4.wav');
+if size(y,2)>1
+    y=y(1:22560,1);
+end
 subplot(3,1,1)
 plot(y)
 sound(y,fs)

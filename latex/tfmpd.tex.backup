@@ -24,7 +24,7 @@
 \maketitle
 
 \begin{abstract}
-En este trabajo inicialmente haremos un breve repaso y clasificación de las técnicas de esteganografía existentes y su diferenciación con otras técnicas de ocultación de información. Luego decribiremos e implementaremos dos de dichas técnicas: Modificación del Bit Menos Significativo (LSB, Least Significant Bit) en el dominio temporal y en el dominio frecuencial se ocultará la información en los coeficientes de la Tranformada Wavelet Discreta. Finalmente evaluaremos los resultados obtenidos mediante técnicas objetivas y subjetivas.
+En este trabajo haremos una breve clasificación de las técnicas de esteganografía existentes y su diferenciación con otras disciplinas de seguridad de datos digitales. Luego decribiremos e implementaremos dos de dichas técnicas: Modificación del Bit Menos Significativo (LSB, Least Significant Bit) en el dominio temporal y en el dominio frecuencial se ocultará la información en los coeficientes de la Tranformada Wavelet Discreta. Finalmente evaluaremos los resultados obtenidos mediante técnicas objetivas y subjetivas.
 \end{abstract}
 
 \begin{keywords}
@@ -32,12 +32,13 @@ esteganografía, data hidding, watermarking
 \end{keywords}
 
 \section{Introducción}
+La esteganografía es una disciplina que se basa en ocultar mensajes u objetos
 
 \PARstart{H}{oy}
 
-\section{Técnicas de Ocultación de Información:}
+\section{Disciplinas de seguridad de datos digitales}
 
-\section{Clasificación de métodos esteganográficos.}
+\section{Clasificación de métodos esteganográficos}
 \section{Implementación en el dominio temporal}
 \section{Implementación en el dominio frecuencial}
 \section{Evaluación de resultados}

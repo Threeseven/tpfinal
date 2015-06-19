@@ -5,12 +5,12 @@ close all;
 clear all;
 msg='Mensaje de prueba';
 bits_fijos=8; % no toco los nbits_fijos mas representativos
-[y, fs, nbits]=wavread('sound2.WAV','native'); % native me devuelve los samples en int16
+[y, fs, nbits]=wavread('audiowp','native'); % native me devuelve los samples en int16
 %---------------------------------------%
 subplot(2,1,1)
 %si la señal tiene dos canales me quedo con uno y la acorto
 if size(y,2)>1
-    y=y(1:22560,1);
+    y=y(:,1);
 end
 plot(y)
 %sound(double(y),fs)
@@ -19,7 +19,7 @@ haarint=liftwave('haar','int2int');
 [ca,cd]=lwt(double(y),haarint);
 minimo=abs(min(ca));
 c_a=ca+minimo; % Coeficientes > 0
-%c_a=c_a.*(2^(nbits-1)); % Necesitamos que sean enteros... ?????
+
 %thr=floor(log2((c_a)));
 
 % cálculo de umbrales por coeficiente
@@ -36,8 +36,7 @@ for i=1:length(c_a)
     end
 end
 
-ca_bin2=dec2bin(c_a,nbits);
-ca_bin=ca_bin2;
+ca_bin=dec2bin(c_a,nbits);
 
 msg_bin=dec2bin(single(msg),8); % 8 bits para ASCII con acentos, ñ...
 msg_bin_l=zeros(1,numel(msg_bin)); % prealloc de msg_bin_l
@@ -61,8 +60,13 @@ end
  tm_bin=dec2bin(tm,bits_tm);
  %msg_bin_l=[tm_bin(1:8) tm_bin(9:16) msg_bin_l];
  msg_bin_l=[tm_bin msg_bin_l];
-for j=1:i-2
-  ca_bin(j,nbits-th(j)+1:nbits)=msg_bin_l(k:k+th(j)-1);
+for j=1:i
+    pos=nbits-th(j)+1;
+    if ((k+th(j)-1)>length(msg_bin_l))
+        ca_bin(j,pos:pos+length(msg_bin_l)-k)=msg_bin_l(k:length(msg_bin_l));
+    else
+        ca_bin(j,pos:nbits)=msg_bin_l(k:k+th(j)-1);
+    end
   k=k+th(j);
 end
 
@@ -76,3 +80,7 @@ subplot(2,1,2)
 plot(y_steg)
 %sound(y_steg,fs)
 wavwrite(y_steg,fs,nbits,'salida.wav')
+
+% medida de señal/ruido
+largo=[length(y) length(y_steg)];
+snr= 10*log10((sum(y(1:min(largo)).^2))/(sum(y(1:min(largo))-y_steg(1:min(largo))).^2))

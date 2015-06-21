@@ -1,0 +1,106 @@
+
+@ARTICLE{Lemma2003,
+    Author         = {Aweke Negash Lemma, Javier Aprea, Werner Oomen, and Leon van de Kerkhof},
+    Journal        = {IEEE Transactions on signal processing},
+    Pages          = {1088-1097},
+    Title          = {A Temporal Domain Audio Watermarking Technique.},
+    Volume         = {51},
+    Year           = {2003}
+}
+
+@ARTICLE{Djaziri2005,
+    Author         = {Sonia Djaziri Larbi and Mériem Jaïdane-Saïdane},
+    Journal        = {IEEE Transactions on signal processing},
+    Pages          = {816-823},
+    Title          = {Audio Watermarking: A Way to Stationnarize Audio Signals},
+    Volume         = {53},
+    Year           = {2005}
+}
+
+@ARTICLE{Seok2005,
+    Author         = {Jong Won Seok and Jin Woo Hong},
+    Journal        = {Electronics Letters},
+    Pages          = {60-61},
+    Title          = {Audio watermarking for copyrigth protection of digital audio data},
+    Volume         = {37},
+    Year           = {2001}
+}
+
+@ARTICLE{Zaidi2006,
+    Author         = {Abdellatif Zaidi, Rémy Boyer and Pierre Duhamel},
+    Journal        = {IEEE Transactions on signal processing},
+    Title          = {Audio Watermarking Under Desynchronization and Additive Noise Attacks},
+    Volume         = {54},
+    Year           = {2006}
+}
+
+@ARTICLE{Moulin2005,
+    Author         = {Pierre Moulin and Ralf Koetter},
+    Journal        = {Proceedings Of The IEEE},
+    Title          = {Data-Hiding Codes},
+    Volume         = {93},
+    Year           = {2005}
+}
+@ARTICLE{Lee2006,
+    Author         = {Sang-Kwang Lee and Yo-Sung Ho},
+    Journal        = {IEEE Transactions and Consumer Electronics},
+    Title          = {Digital audio watermarking in cepstrum domain},
+    Volume         = {46},
+    Year           = {2000}
+}
+@ARTICLE{Podilchuk2006,
+    Author         = {Christine I. Podilchuk and Edward J. Delp},
+    Journal        = {IEEE Signal Processing Magazine},
+    Title          = {Digital watermarking: Algorithms and applications},
+    Year           = {2001}
+}
+@ARTICLE{Kumar2001,
+    Author         = {S. Krishna Kumar and Thippur Sreenivas},
+    Journal        = {Elsevier Signal Processing},
+    Title          = {Increased watermark-to-host correlation of uniform random phase watermarks in audio signals},
+    Volume         = {87},
+    Year           = {2001}
+}
+@ARTICLE{Hartung1999,
+    Author         = {Frank Hartung and Martin Kutter},
+    Journal        = {Proceedings of the IEEE},
+    Title          = {Multimedia Watermarking Techniques},
+    Volume         = {87},
+    Year           = {1999}
+}
+@ARTICLE{Li2005,
+    Author         = {W. Li, X.Y. Xue and P.Z. Lu},
+    Journal        = {Electronics Letters},
+    Title          = {Robust audio watermarking based on rhythm region detection},
+    Volume         = {41},
+    Year           = {2005}
+}
+@ARTICLE{Bassia2001,
+    Author         = {Paraskevi Bassia, Ioannis Pitas and Nikos Nikolaidis},
+    Journal        = {IEEE Transactions on Multimedia},
+    Title          = {Robust Audio Watermarking in the Time Domain},
+    Volume         = {03},
+    Year           = {2001}
+}
+@ARTICLE{Akhaee2010,
+    Author         = {Mohammad Ali Akhaee, Nima Khademi Kalantari and Farokh Marvasti},
+    Journal        = {Elsevier Signal Processing},
+    Title          = {Robust audio and speech watermarking using Gaussian and Laplacian modeling},
+    Volume         = {90},
+    Year           = {2010}
+}
+@ARTICLE{Kim2010,
+    Author         = {Hyun Wook Kim, Dooseop Choi, Hyuk Choi and Taejeong Kim},
+    Journal        = {Elsevier Signal Processing},
+    Title          = {Selective correlation detector for additive spread spectrum watermarking in transform domain},
+    Volume         = {90},
+    Year           = {2010}
+}
+@ARTICLE{Kim2010,
+    Author         = {W. Bender, D. Gruhl, N. Morimoto and A. Lu},
+    Journal        = {IBM Systems Journal},
+    Title          = {Techniques for data hiding},
+    Volume         = {35},
+    Year           = {1996}
+} 
+\item by . \textit{.} , Vol. 35, Nos. 3 y 4, 1996.

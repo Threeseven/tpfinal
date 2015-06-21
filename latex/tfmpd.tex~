@@ -1,0 +1,48 @@
+\documentclass[conference,a4paper,10pt, oneside,final]{tfmpd}
+%\usepackage[latin1]{inputenc}   % caracteres especiales (acentos, eñes)
+%\usepackage[spanish]{babel}     % varias definiciones para el español
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}           % inserción de graficos
+\usepackage{float} %paquete para que ponga las imagenees donde yo quiero, no donde quiere el muy hdp de latex
+%la posición de la imagen, con H (mayúscula!!)
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Técnica básica de Voicemorphing}
+
+\author{Darío A. Villarreal,
+        Matías A. Eberhardt y 
+        Nicolás D. Longhi\\
+\textit{Trabajo Práctico Final de Procesamiento Digital de Señales, II-FICH-UNL.}}
+
+\markboth{Trabajo Práctico final de Procesamiento Digital de Señales}{}
+
+\maketitle
+
+\begin{abstract}
+Nos referimos como Voice Morphing a la modificación de las características acústicas de una voz, ya sea para ocultar la identidad del hablante como para que ésta suene como si fuese hablada por un determinado hablante. Presentamos 
+\end{abstract}
+
+\begin{keywords}
+watermarking inaudible, legalización de audio, codificación de información
+\end{keywords}
+
+\section{Introducción}
+
+\PARstart{H}{oy}
+
+\section{Aprendizaje}
+
+\section{Síntesis}
+\section{Resultados}
+\section{Mejoras}
+
+\nocite{*}
+\bibliographystyle{tfmpd}
+\bibliography{tfmpd}
+
+\end{document}

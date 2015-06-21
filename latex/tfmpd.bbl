@@ -1,0 +1,82 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{#1}
+\def\UrlFont{\rmfamily}
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\bibitem{conf/iih-msp/DelforouziP07}
+\BIBentryALTinterwordspacing
+A.~Delforouzi y M.~Pooyan, ``{Adaptive Digital Audio Steganography Based on
+  Integer Wavelet Transform.}'' en \emph{{IIH-MSP}}, B.-Y. Liao, J.-S. Pan,
+  L.~C. Jain, M.~Liao, H.~Noda, y A.~T.~S. Ho, Eds., pp. 283--286.\hskip 1em
+  plus 0.5em minus 0.4em\relax IEEE, 2007. [Online]. Disponible:
+  \url{http://dblp.uni-trier.de/db/conf/iih-msp/iih-msp2007.html\#DelforouziP07}
+\BIBentrySTDinterwordspacing
+
+\bibitem{conf/IEEEmsp/CvejicS02}
+\BIBentryALTinterwordspacing
+N.~Cvejic y T.~Sepp{\"a}nen, ``{Increasing the capacity of LSB-based audio
+  steganography.}'' en \emph{{IEEE Workshop on Multimedia Signal Processing}},
+  pp. 336--338.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2002. [Online].
+  Disponible:
+  \url{http://dblp.uni-trier.de/db/conf/IEEEmsp/msp2002.html\#CvejicS02}
+\BIBentrySTDinterwordspacing
+
+\bibitem{journals/ejasmp/DjebbarA12}
+\BIBentryALTinterwordspacing
+F.~Djebbar y B.~Ayad, ``{Comparative Study of Digital Audio Steganography
+  Techniques.}'' \emph{EURASIP J. Audio, Speech and Music Processing}, vol.
+  2012, p.~25, 2012. [Online]. Disponible:
+  \url{http://dblp.uni-trier.de/db/journals/ejasmp/ejasmp2012.html\#DjebbarA12}
+\BIBentrySTDinterwordspacing
+
+\bibitem{journals/jsac/AndersonP98}
+\BIBentryALTinterwordspacing
+R.~J. Anderson y F.~A.~P. Petitcolas, ``{On the limits of steganography.}''
+  \emph{IEEE Journal on Selected Areas in Communications}, vol.~16, no.~4, pp.
+  474--481, 1998. [Online]. Disponible:
+  \url{http://dblp.uni-trier.de/db/journals/jsac/jsac16.html\#AndersonP98}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ieee6020921}
+M.~Asad, J.~Gilani, y A.~Khalid, ``{An enhanced least significant bit
+  modification technique for audio steganography},'' en \emph{{Computer
+  Networks and Information Technology (ICCNIT), 2011 International Conference
+  on}}, pp. 143--147, July 2011.
+
+\bibitem{journals/tifs/HuangLTB12}
+\BIBentryALTinterwordspacing
+Y.~Huang, C.~Liu, S.~Tang, y S.~Bai, ``{Steganography Integration Into a
+  Low-Bit Rate Speech Codec.}'' \emph{IEEE Transactions on Information
+  Forensics and Security}, vol.~7, no.~6, pp. 1865--1875, 2012. [Online].
+  Disponible:
+  \url{http://dblp.uni-trier.de/db/journals/tifs/tifs7.html\#HuangLTB12}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ieee1231075}
+N.~Cvejic y T.~Seppa?nen, ``{A wavelet domain LSB insertion algorithm for high
+  capacity audio steganography},'' en \emph{{Digital Signal Processing
+  Workshop, 2002 and the 2nd Signal Processing Education Workshop. Proceedings
+  of 2002 IEEE 10th}}, pp. 53--55, Oct 2002.
+
+\bibitem{ieee4517963}
+S.~Shirali-Shahreza y M.~Manzuri-Shalmani, ``{High capacity error free wavelet
+  Domain Speech Steganography},'' en \emph{{Acoustics, Speech and Signal
+  Processing, 2008. ICASSP 2008. IEEE International Conference on}}, pp.
+  1729--1732, March 2008.
+
+\end{thebibliography}

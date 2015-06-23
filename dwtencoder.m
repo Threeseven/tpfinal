@@ -10,7 +10,7 @@ function [snr] = dwtencoder( archivo_entrada, archivo_salida, msg, bits)
   if size(y,2)>1
       y=y(:,1);
   end
-
+  y=y(1:30000);
   haarint=liftwave('haar','int2int');
   [ca,cd]=lwt(double(y),haarint);
   minimo=abs(min(ca));
@@ -35,12 +35,17 @@ function [snr] = dwtencoder( archivo_entrada, archivo_salida, msg, bits)
   else
     th=bits*ones(1,length(th));
   end
-  
+  %acorto el mensaje si es mas largo que el audio
   tm_th=floor(sum(th)/8);
   if(tm_th<length(msg))
       msg=msg(1:tm_th-2);
   end
-  
+  %acorto el mensaje si es mas largo que 2^16
+  tm_msg=length(msg);
+  aux=floor((2^16-1)/8);
+  if (tm_msg>aux)
+      msg=msg(1:aux-2);
+  end
   ca_bin=dec2bin(c_a,nbits);
 
   msg_bin=dec2bin(single(msg),8); % 8 bits para ASCII con acentos, ñ...
@@ -56,6 +61,7 @@ function [snr] = dwtencoder( archivo_entrada, archivo_salida, msg, bits)
    j=0;
    bits_tm=16;
    tm=length(msg_bin_l)+bits_tm;
+ 
    %calculo en que coeficiente irá el último bit del mensaje
    while (j<tm)
        j=j+th(i);
@@ -79,10 +85,13 @@ function [snr] = dwtencoder( archivo_entrada, archivo_salida, msg, bits)
   ca_dec=ca_dec-minimo;
   y_steg = ilwt(ca_dec,cd,haarint);
   y_steg=int16(y_steg);
-  
+ 
   wavwrite(y_steg,fs,nbits,archivo_salida);
-
+  [y2, fs, nbits]=wavread(archivo_entrada);
+  [y3, fs, nbits]=wavread(archivo_salida);
+ sound(y3(1:30000),fs)
+  plot(y2(1:30000,1)-y3(1:30000))
   % medida de señal/ruido
-  largo=[length(y) length(y_steg)];
-  snr= 10*log10((sum(y(1:min(largo)).^2))/(sum(y(1:min(largo))-y_steg(1:min(largo))).^2));
+  largo=[length(y2) length(y3)];
+  snr= 10*log10((sum(y2(1:min(largo),1).^2))/(sum(y2(1:min(largo),1)-y3(1:min(largo))).^2));
 end

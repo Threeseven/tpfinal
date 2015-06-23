@@ -1,11 +1,11 @@
+function [msg] = dwtdecoder( archivo_salida)
 %---------------------------------------%
-%% Definición de variables %%
+% Definición de variables %
 %---------------------------------------%
-close all;
-clear all;
+
 bits_fijos=8; % no toco los nbits_fijos mas representativos
-[y, fs, nbits]=wavread('salida','native'); % native me devuelve los samples en int16
-msg='Error!';
+[y, fs, nbits]=wavread(archivo_salida,'native'); % native me devuelve los samples en int16
+%msg='Error!';
 %---------------------------------------%
 % Me quedo con un canal
 if size(y,2)==2
@@ -30,7 +30,10 @@ for i=1:length(c_a)
                     th(i)=nbits-7-bits_fijos;%1        
     end
 end
-
+sum(th)/length(th)
+% plot(th)
+% 
+% title('Capacidad de bits por muestra - Señal Voz ');
 ca_bin=dec2bin(c_a,nbits);
 
 %busco la longitud del mensaje, codificada en los primeros 16bits del
@@ -47,6 +50,7 @@ end
 %longitud antes calculada.
 i=1;
 j=0;
+tm_bin(1:16);
 tm=bin2dec(tm_bin(1:16));
  while (j<=tm+16)
      j=j+th(i);
@@ -67,4 +71,5 @@ for j=0:floor(length(msg_bin_l)/8)-1
 end
 % vector de mensaje en decimal
 s=bin2dec(char(msg_bin));
-msg=char(s(3:(tm/8))')
+msg=char(s(3:(tm/8))');
+end

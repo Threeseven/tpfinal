@@ -26,4 +26,5 @@ function [archivo_salida, snr] = dwtencoder( archivo_entrada, msg )
   y_dec=bin2dec(y_bin);
   y_dec=(y_dec./2^(nbits-1))-minimo;
   snr= 10*log10((sum(y.^2))/(sum(y-y_dec).^2));
+  wavwrite(y_dec, fs, nbits, archivo_salida);
 end

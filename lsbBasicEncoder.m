@@ -1,4 +1,4 @@
-function [archivo_salida, snr] = dwtencoder( archivo_entrada, msg )
+function [snr] = lsbBasicEncoder( archivo_entrada,archivo_salida, msg )
   % LSB original para ocultar texto
   [y, fs, nbits]=wavread(archivo_entrada);
   if size(y,2)==2;
@@ -9,11 +9,15 @@ function [archivo_salida, snr] = dwtencoder( archivo_entrada, msg )
   y_a=y_a.*(2^(nbits-1));
   % nbits=8;
   y_bin=dec2bin(y_a,nbits);
-
+  tm=size(y_bin,2);
+  if (tm<floor(msg*8))
+      msg=msg(1:tm);
+  end
 
   nbits_m=8; % Cantidad de bits para codificar el mensaje
   % Mensaje a codificar
   ms_d=single(msg);
+  
   ms_bin=dec2bin(ms_d,nbits_m);
   % Codificación
   k=1;

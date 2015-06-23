@@ -40,14 +40,14 @@ for i = 1:cantidad_pasos
       ODG_real(i, 2) = PQevalAudio( audio_entrada, audio_salida );
 end
 
-x = [1:largo_mensaje_atomo:largo_mensaje];
+x = [1:largo_mensaje_atomo:largo_mensaje-largo_mensaje_atomo];
 
 figure(1);
-plot(x, snr(:,1), 'r+', x, snr(:,2), 'b--o', x, snr(:,3), 'c*');
+plot(x, snrs(:,1), 'r+', x, snrs(:,2), 'b--o', x, snrs(:,3), 'c*');
 title("Comparacion SNR  - Dominio Frecuencial");
 xtitle("Tamaño de mensaje");
 
 figure(2);
-plot(x, ODG_max, 'g', x, ODG_real(:,1), 'r+', x, ODG_real(:,2), 'b--o', x, ODG_real(:,3), 'c*');
+plot(x, ODG_max', 'g', x, ODG_real(:,1)', 'r+', x, ODG_real(:,2)', 'b--o', x, ODG_real(:,3)', 'c*');
 title("Comparacion PEAQ - Dominio Frecuencial");
 xlabel("Tamaño de mensaje");

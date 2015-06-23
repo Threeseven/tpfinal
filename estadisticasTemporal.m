@@ -7,7 +7,7 @@ cantidad_pasos = 10;
 
 mensaje_total = fileread('randomtext.txt');
 largo_mensaje = length(mensaje_total);
-largo_mensaje_atomo = largo_mensaje/cantidad_pasos;
+largo_mensaje_atomo = floor(largo_mensaje/cantidad_pasos);
 
 snrs = zeros(cantidad_pasos,1);
 ODG_max = zeros(cantidad_pasos,1);
@@ -20,20 +20,20 @@ for i = 1:cantidad_pasos
       % Guardamos el SNR
       snrs(i) = snr;
       % Archivo contra si mismo para tener de referencia
-      ODG_max(i) = PQevalAudio( archivo_entrada, archivo_entrada );
+      ODG_max(i) = PQevalAudio( audio_entrada, audio_entrada );
       % Valor de referencia perceptual
-      ODG_real(i) = PQevalAudio( archivo_entrada, archivo_salida );
+      ODG_real(i) = PQevalAudio( audio_entrada, audio_salida );
 
 end
 
 x = [1:largo_mensaje_atomo:largo_mensaje];
 
 figure(1);
-stem(x, snr);
-title("Comparacion SNR  - Dominio Frecuencial");
-xtitle("Tamaño de mensaje");
+plot(x, snr, 'b--o');
+title("Comparacion SNR  - Dominio Temporal");
+xlabel("Tamaño de mensaje");
 
 figure(2);
-stem(x, ODG_max, x, ODG_real);
-title("Comparacion PEAQ - Dominio Frecuencial");
+plot(x, ODG_max, 'r', x, ODG_real, 'b--o');
+title("Comparacion PEAQ - Dominio Temoral");
 xlabel("Tamaño de mensaje");

@@ -43,7 +43,7 @@ end
 x = [1:largo_mensaje_atomo:largo_mensaje-largo_mensaje_atomo];
 
 figure(1);
-plot(x, snrs(:,1), 'r+', x, snrs(:,2), 'b--o', x, snrs(:,3), 'c*');
+plot(x', snrs(:,1), 'r+', x, snrs(:,2), 'b--o', x, snrs(:,3), 'c*');
 title("Comparacion SNR  - Dominio Frecuencial");
 xtitle("Tamaño de mensaje");
 

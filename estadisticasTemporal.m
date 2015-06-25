@@ -1,6 +1,6 @@
 %% Evaluador de performance
 
-audio_entrada = 'audiowp.wav';
+audio_entrada = 'quealguientraigamadera.wav';
 audio_salida = 'salida.wav';
 
 cantidad_pasos = 10 ;

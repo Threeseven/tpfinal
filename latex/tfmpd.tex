@@ -52,7 +52,6 @@ En este trabajo repasaremos brevemente las principales técnicas de esteganograf
 \section{Métodos esteganográficos \cite{journals/ejasmp/DjebbarA12}}
 
 \subsection{En el dominio del tiempo}
-Los métodos en el dominio del tiempo se caracterizan por simplicidad, alta capacidad e imperceptibilidad.
 \begin{itemize}
  \item Bit menos significativo (LSB)
  \begin{itemize}
@@ -77,7 +76,7 @@ Los métodos en el dominio del tiempo se caracterizan por simplicidad, alta capa
  \end{itemize}
 \end{itemize}
 
-\subsection{En el dominio de la frecuencia}
+\subsection{En el dominio transformado}
 \begin{itemize}
  \item Magnitud del espectro
    \begin{itemize}
@@ -143,26 +142,24 @@ Los métodos en el dominio del tiempo se caracterizan por simplicidad, alta capa
 \end{itemize}
 
 \section{Implementación en el dominio temporal: Bit menos significativo (LSB)}
-La modificación LSB es una de las técnica de esteganografía más simple que provee una alta capacidad. Esta ténica consiste en ocultar el mensaje en el o los bits menos significativos de la muestras de audio.
-Incrementando el numero de bits a modificar se induce mas ruido, si dicho audio supera un determinado umbral y es percibido, la técnica falla. Por lo tanto usando mas LSBs se incrementa la capacidad pero se pierde transparencia.
+La modificación LSB es una de las técnicas de esteganografía más simples y provee una alta capacidad. Esta ténica consiste en ocultar el mensaje en el o los bits menos significativos de cada muestra de audio.
+Incrementando el numero de bits a modificar se introduce mas ruido y si dicho ruido supera un determinado umbral es percibido y la técnica falla. Por lo tanto usando mas LSBs se incrementa la capacidad pero se pierde transparencia.
 
-La tecnica de LSB es vulnerable al estegoanálisis. Realizando un analisis de la señal se podria detectar facilmente el mensaje secreto.
-Se proponen dos variantes a la técnica de LSB que la mejoran:
+Dada su simplicidad, esta técnica de LSB es vulnerable al estegoanálisis. Realizando un análisis de la señal se podría detectar fácilmente el mensaje secreto. Para evitar que el mensaje pueda ser recuperado por un tercero se propone encriptar previamente le mensaje y utilizar una de las siguientes variantes o una conbinación de las mismas.
 
 \subsubsection{Seleccion de Bit}
-
-En esta tecnica utiliza los primeros dos bits mas significativos de cada muestra para decidir cual bit de la misma muestra va a contener el bit del mensaje secreto. El mensaje secreto se ocultara en uno de los primeros tres LSBs de cada muestra.
+Esta técnica utiliza los primeros dos bits mas significativos (MSBs) de cada muestra para decidir que bit de la misma va a contener el bit del mensaje secreto. El mensaje secreto se ocultara en uno de los primeros tres LSBs de cada muestra.
 
 Si los primeros dos MSBs de la muestra son iguales a $00$, el tercer LSB sera reemplazado con un bit del mensaje secreto. Si los primeros dos MSBs de la muestra son iguales a $01$, el segundo LSB sera reemplazado con un bit del mensaje secreto y si los dos primeros MSBs son $10$ o $11$, el primer bit sera reemplazado por un bit del mensaje secreto.
 De esta manera se introduce una aleatoriedad en la seleccion de los bits donde se ocultara el mensaje.
 
 \subsubsection{Seleccion de Muestra}
-Otra manera de agregar aleatoreidad es usar solo algunas muestras de la señal. Esto es controlado por los primeros tres MSBs de una muestra. Es decir si "i" es la muestra actual, los primeros tres MSBs de i determinaran el numero de muestras salteadas entre dos bits consecutivos del mensaje secreto. Por ejemplo si los primeros tres MSBs de la primera muestra (i=1) son iguales a 010, entonces la proxima muestra que contendra el siguiente bit del mensaje secreto sera i+3=4. Luego la proxima muestra estara determinada por los tres primeros MSBS de la muestra 4 y asi sucesivamente. Este método brinda una mayor aleatoreidad que el anterior pero decrementa la capacidad.
+Otra manera de agregar aleatoreidad es usar sólo algunas muestras de la señal para ocultar el mensaje, seleccionando la próxima muestra que contandrá el mensaje medinate los primeros tres MSBs de la muestra actual. Es decir si $i$ es la muestra actual, los primeros tres MSBs de $i$ determinaran el numero de muestras salteadas entre dos bits consecutivos del mensaje secreto. Por ejemplo si los primeros tres MSBs de la primera muestra ($i=1$) son iguales a $010$, entonces la proxima muestra que contendrá el siguiente bit del mensaje secreto sera $i+3=4$. Luego, la próxima muestra estará determinada por los tres primeros MSBs de la muestra $4$ y así sucesivamente. Este método brinda una mayor aleatoreidad que el anterior pero decrementa notablemente la capacidad.
 
-
-\section{Implementación en el dominio frecuencial}
+\section{Implementación en el dominio transformado}
 Este método se basa en embeber la información en los bits menos significativos de los coeficientes enteros de la transformada wavelet discreta. 
-En este trabajo utilizamos la familia de wavelets Haar por ser las mas simples, rápidas y eficientes en lo que al cálculo se refiere y la transformada LWT (Lifting Wavelet Transform) para obtener coeficientes enteros. Luego, para mejorar la imperceptibilidad se emplearon umbrales calculados sobre el tamaño del coeficiente embebiendo menos bits en coeficientes pequeños y evitando embeber información en los tramos silenciosos del archivo de audio.
+En este trabajo utilizamos la familia de wavelets Haar por ser las mas simples, rápidas y eficientes en lo que al cálculo se refiere y la transformada LWT (Lifting Wavelet Transform) para obtener coeficientes enteros. En caso de no usar dicha transformada obtendríamos coeficientes reales y deberíamos escalarlos para su posterior pasaje a binario. 
+Luego, para mejorar la imperceptibilidad se emplearon umbrales calculados sobre el tamaño del coeficiente embebiendo menos bits en coeficientes pequeños y evitando embeber información en los tramos silenciosos del archivo de audio.
 
 \scriptsize{
 $$
@@ -183,8 +180,7 @@ $$
 }
 
 Donde $Th$ es el vector umbral que indica cuandos bits embeberemos en cada coeficiente, $C$ es el vector de coeficientes, $nbits$ es el tamaño en bits del coeficiente wavelet entero, $fijos$ son los MSBs que no se tocarán.
-
-Presenta una alta imperceptbilidad y capacidad.
+El vector $Th$ calculado en el decodificado del mensaje es igual al usado en el codificado, por lo que el mensaje es recuperado íntegro y sin necesidad de que el receptor conozca previemente este vector. Esto es interesante ya que el algoritmo se adaptará a la señal portadora para embeber la mayor cantidad de información posible sin comprometer la transparecia del codificado, logrando una gran capacidad e imperceptibilidad a la vez.
 
 \section{Evaluación de resultados}
 \subsection{PEAQ}
@@ -199,6 +195,22 @@ Presenta una alta imperceptbilidad y capacidad.
 \begin{figure}[h!]
  \centering
  \includegraphics[keepaspectratio=true, width=240 px]{./graficos/dominio-frequencial-lsb-snr.png}
+ % dominio-frequencial-lsb-snr.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+ \caption{Leyenda}
+ \label{fig: Etiqueta}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[keepaspectratio=true, width=240 px]{./graficos/dominio-temporal-lsb-peaq.png}
+ % dominio-frequencial-lsb-snr.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+ \caption{Leyenda}
+ \label{fig: Etiqueta}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[keepaspectratio=true, width=240 px]{./graficos/dominio-frecuencial-wdt-peaq.png}
  % dominio-frequencial-lsb-snr.png: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
  \caption{Leyenda}
  \label{fig: Etiqueta}

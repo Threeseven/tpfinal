@@ -147,13 +147,13 @@ Incrementando el numero de bits a modificar se introduce mas ruido y si dicho ru
 
 Dada su simplicidad, esta técnica de LSB es vulnerable al estegoanálisis. Realizando un análisis de la señal se podría detectar fácilmente el mensaje secreto. Para evitar que el mensaje pueda ser recuperado por un tercero se propone encriptar previamente le mensaje y utilizar una de las siguientes variantes o una conbinación de las mismas.
 
-\subsubsection{Seleccion de Bit}
+\subsection{Seleccion de Bit}
 Esta técnica utiliza los primeros dos bits mas significativos (MSBs) de cada muestra para decidir que bit de la misma va a contener el bit del mensaje secreto. El mensaje secreto se ocultara en uno de los primeros tres LSBs de cada muestra.
 
 Si los primeros dos MSBs de la muestra son iguales a $00$, el tercer LSB sera reemplazado con un bit del mensaje secreto. Si los primeros dos MSBs de la muestra son iguales a $01$, el segundo LSB sera reemplazado con un bit del mensaje secreto y si los dos primeros MSBs son $10$ o $11$, el primer bit sera reemplazado por un bit del mensaje secreto.
 De esta manera se introduce una aleatoriedad en la seleccion de los bits donde se ocultara el mensaje.
 
-\subsubsection{Seleccion de Muestra}
+\subsection{Seleccion de Muestra}
 Otra manera de agregar aleatoreidad es usar sólo algunas muestras de la señal para ocultar el mensaje, seleccionando la próxima muestra que contandrá el mensaje medinate los primeros tres MSBs de la muestra actual. Es decir si $i$ es la muestra actual, los primeros tres MSBs de $i$ determinaran el numero de muestras salteadas entre dos bits consecutivos del mensaje secreto. Por ejemplo si los primeros tres MSBs de la primera muestra ($i=1$) son iguales a $010$, entonces la proxima muestra que contendrá el siguiente bit del mensaje secreto sera $i+3=4$. Luego, la próxima muestra estará determinada por los tres primeros MSBs de la muestra $4$ y así sucesivamente. Este método brinda una mayor aleatoreidad que el anterior pero decrementa notablemente la capacidad.
 
 \section{Implementación en el dominio transformado}
@@ -161,7 +161,7 @@ Este método se basa en embeber la información en los bits menos significativos
 En este trabajo utilizamos la familia de wavelets Haar por ser las mas simples, rápidas y eficientes en lo que al cálculo se refiere y la transformada LWT (Lifting Wavelet Transform) para obtener coeficientes enteros. En caso de no usar dicha transformada obtendríamos coeficientes reales y deberíamos escalarlos para su posterior pasaje a binario. 
 Luego, para mejorar la imperceptibilidad se emplearon umbrales calculados sobre el tamaño del coeficiente embebiendo menos bits en coeficientes pequeños y evitando embeber información en los tramos silenciosos del archivo de audio.
 
-\scriptsize{
+{\scriptsize
 $$
 Th_i= \left\lbrace 
 \begin{array}{ll}

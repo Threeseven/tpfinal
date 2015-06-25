@@ -1,9 +1,9 @@
 %% Evaluador de performance
 
-audio_entrada = 'sound1.WAV';
+audio_entrada = 'audiowp.wav';
 audio_salida = 'salida.wav';
 
-cantidad_pasos = 10;
+cantidad_pasos = 10 ;
 
 mensaje_total = fileread('randomtext.txt');
 largo_mensaje = length(mensaje_total);
@@ -33,7 +33,7 @@ for i = 1:cantidad_pasos
       % Valor de referencia perceptual
       ODG_real(i, 2) = PQevalAudio( audio_entrada, audio_salida );
       
-      %snr = lsbStepByteEncoder( audio_entrada,audio_salida, mensaje );
+      snr = lsbStepByteEncoder( audio_entrada,audio_salida, mensaje );
       % Guardamos el SNR
       snrs(i, 3) = snr;
       % Valor de referencia perceptual
@@ -46,8 +46,10 @@ figure(1);
 plot(x, snrs(:,1)', 'r+', x, snrs(:,2)', 'b--o', x, snrs(:,3)', 'c*');
 title('Comparacion SNR  - Dominio Temporal');
 xlabel('Tamaño de mensaje');
+saveas(1, 'snr.png', 'png');
 
 figure(2);
-plot(x, ODG_max, 'g', x, ODG_real(:,1), 'r+', x, ODG_real(:,2), 'b--o', x, ODG_real(:,3), 'c*');
+plot(x, ODG_max, 'g', x, ODG_real(:,1), 'r--+', x, ODG_real(:,2), 'b--o', x, ODG_real(:,3), 'c*');
 title('Comparacion PEAQ - Dominio Temporal');
 xlabel('Tamaño de mensaje');
+saveas(2, 'peaq.png', 'png');

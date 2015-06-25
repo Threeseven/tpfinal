@@ -18,6 +18,14 @@
 \fi
 #2}}
 
+\bibitem{journals/ejasmp/DjebbarA12}
+\BIBentryALTinterwordspacing
+F.~Djebbar y B.~Ayad, ``{Comparative Study of Digital Audio Steganography
+  Techniques.}'' \emph{EURASIP J. Audio, Speech and Music Processing}, vol.
+  2012, p.~25, 2012. [Online]. Disponible:
+  \url{http://dblp.uni-trier.de/db/journals/ejasmp/ejasmp2012.html\#DjebbarA12}
+\BIBentrySTDinterwordspacing
+
 \bibitem{conf/iih-msp/DelforouziP07}
 \BIBentryALTinterwordspacing
 A.~Delforouzi y M.~Pooyan, ``{Adaptive Digital Audio Steganography Based on
@@ -34,14 +42,6 @@ N.~Cvejic y T.~Sepp{\"a}nen, ``{Increasing the capacity of LSB-based audio
   pp. 336--338.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2002. [Online].
   Disponible:
   \url{http://dblp.uni-trier.de/db/conf/IEEEmsp/msp2002.html\#CvejicS02}
-\BIBentrySTDinterwordspacing
-
-\bibitem{journals/ejasmp/DjebbarA12}
-\BIBentryALTinterwordspacing
-F.~Djebbar y B.~Ayad, ``{Comparative Study of Digital Audio Steganography
-  Techniques.}'' \emph{EURASIP J. Audio, Speech and Music Processing}, vol.
-  2012, p.~25, 2012. [Online]. Disponible:
-  \url{http://dblp.uni-trier.de/db/journals/ejasmp/ejasmp2012.html\#DjebbarA12}
 \BIBentrySTDinterwordspacing
 
 \bibitem{journals/jsac/AndersonP98}
